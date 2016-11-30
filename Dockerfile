@@ -1,5 +1,9 @@
 FROM ubuntu:trusty
 
+# MySQL 5.7 libs
+RUN apt-key adv --keyserver ha.pool.sks-keyservers.net --recv-keys A4A9406876FCBD3C456770C88C718D3B5072E1F5 && \
+    echo "deb http://repo.mysql.com/apt/ubuntu/ trusty mysql-5.7" > /etc/apt/sources.list.d/mysql.list
+
 # Ubuntu packages
 RUN apt-get update && \
   apt-get install -y python-pip python-dev curl build-essential pwgen libffi-dev sudo git-core wget \
